@@ -1,0 +1,4 @@
+
+<!--index.wxml-->
+<import src="../../dist/template/cartItem.wxml"/>
+<template is="cartItem" data="{{...cartItem}}"/>
