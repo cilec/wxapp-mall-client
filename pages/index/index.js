@@ -1,33 +1,25 @@
 //index.js
 //获取应用实例
-var app = getApp()
+const testData = require('../../libs/testData');
+const AV = require('../../libs/av-weapp-min.js');
+const Product = require('../../models/product.js');
 Page({
   data: {
-cartItem:{
-  imgUrl:"https://img.yzcdn.cn/upload_files/2016/11/25/FpqPXlrMRjKwJs8VdTu3ZDJCj4j5.jpeg?imageView2/2/w/200/h/200/q/90/format/jpeg",
-  price:99.99,
-  num:1,
-  des:'des',
-  isSend:'已发货',
-  name:'牛肉',
-  // total:(price*num).toFixed(2)
-}
+    swiperUrls: testData.swiperUrls,
+    productImgUrls: [],
+    product: []
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    console.log('onLoad')
-    var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
+  onLoad() {
+    let that = this;
+    let query = new AV.Query('Product');
+    query.find().then(res => {
+      // console.log('test query', res);
+      let imgList = [];
+      for (let i of res) {
+        // console.log(i.get('imgUrls'))
+        imgList = [...imgList, i.get('imgUrls')[0]];
+      }
+      that.setData({ productImgUrls: imgList, product: res });
     })
   }
 })

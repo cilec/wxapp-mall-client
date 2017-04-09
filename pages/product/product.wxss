@@ -1,0 +1,20 @@
+/* pages/product/product.wxss */
+
+swiper {
+  height: 60vh;
+}
+
+.desc-container {
+  border-top: 1rpx solid lightgrey;
+  padding-bottom: 120rpx;
+}
+
+.desc-image {
+  width: 100%;
+  display: block;
+}
+.btn-area {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

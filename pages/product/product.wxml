@@ -1,0 +1,43 @@
+<import src="/dist/quantity/index.wxml" />
+
+<!--pages/product/product.wxml-->
+<swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="{{3000}}" duration="{{1000}}">
+  <block wx:for="{{product.imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" mode="aspectFit" />
+    </swiper-item>
+  </block>
+</swiper>
+<view class="zan-panel">
+  <view class="zan-cell">
+    <view class="zan-cell__bd zan-font-bold" style="font-size:1.2rem;">{{product.name}}</view>
+  </view>
+  <view class="zan-cell">
+    <view class="zan-cell__bd  zan-font-bold zan-c-red" style="font-size:1.2rem;">¥ {{product.price}}</view>
+  </view>
+  <view class="zan-cell">
+    <view class="zan-cell__bd">
+      购买数量：
+    </view>
+    <view class="zan-cell__bd" style="justify-content:flex-end;display:flex;">
+      <template is="zan-quantity" data="{{ ...quantity, componentId: 'quantity' }}" />
+    </view>
+  </view>
+  <view class="zan-cell">
+    <view class="zan-cell__bd zan-c-gray">运费：免运费</view>
+    <view class="zan-cell__bd zan-c-gray">
+      <view class="zan-pull-right">剩余：23999</view>
+    </view>
+  </view>
+  <view class="zan-cell">
+    {{product.desc}}
+  </view>
+</view>
+<view class="desc-container">
+  <block wx:for="{{product.imgUrls}}">
+    <image src="{{ item }}" class="desc-image" bindload="imageLoad" data-index="{{ index }}" style="height:{{ imagesSize[index].height }}rpx;"></image>
+  </block>
+</view>
+<view class="btn-area">
+  <button class="zan-btn zan-btn--large zan-btn--primary" bindtap="goCheck">去结账</button>
+</view>

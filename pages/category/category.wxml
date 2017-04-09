@@ -1,0 +1,11 @@
+
+<!--pages/category/category.wxml-->
+<view class="container">
+  <block wx:for="{{products}}">
+    <navigator url="../product/product?objectId={{item.objectId}}">
+      <view class="item">
+        <image src="{{item.imgUrls[0]}}" mode="widthFix"></image>
+      </view>
+    </navigator>
+  </block>
+</view>

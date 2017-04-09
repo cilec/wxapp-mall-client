@@ -1,4 +1,19 @@
 
 <!--index.wxml-->
-<import src="../../dist/template/cartItem.wxml"/>
-<template is="cartItem" data="{{...cartItem}}"/>
+<swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="{{3000}}" duration="{{1000}}">
+  <block wx:for="{{swiperUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" mode="aspectFill" />
+    </swiper-item>
+  </block>
+</swiper>
+<view class="zan-panel-title">热门商品</view>
+<view class="zan-panel">
+  <block wx:for="{{productImgUrls}}">
+    <navigator url="../product/product?objectId={{product[index].objectId}}">
+      <view style="padding: 15px;height:30vh;">
+        <image src="{{item}}" mode="aspectFit"></image>
+      </view>
+    </navigator>
+  </block>
+</view>
