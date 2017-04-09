@@ -2,27 +2,31 @@
 <!--pages/cart/cart.wxml-->
 <text>pages/cart/cart.wxml</text>
 <block wx:for="{{cart}}">
-<view class="zan-panel">
-
-  <view class="zan-card">
-    <view class="zan-card__thumb">
-      <image class="zan-card__img" src="{{item.imgUrls[0]}}" mode="aspectFit"></image>
-    </view>
-    <view class="zan-card__detail">
-      <view class="zan-card__detail-row">
-        <view class="zan-card__right-col">¥ {{item.quantity*item.price}}</view>
-        <view class="zan-card__left-col zan-ellipsis--l2">
-         {{item.name}}
+  <view class="zan-panel">
+    <view class="zan-card">
+      <view class="zan-card__thumb">
+        <image class="zan-card__img" src="{{item.imgUrls[0]}}" mode="aspectFit"></image>
+      </view>
+      <view class="zan-card__detail">
+        <view class="zan-card__detail-row">
+          <view class="zan-card__right-col">¥ {{item.quantity*item.price}}</view>
+          <view class="zan-card__left-col zan-ellipsis--l2">
+            {{item.name}}
+          </view>
         </view>
-      </view>
-      <view class="zan-card__detail-row zan-c-gray-darker">
-        <view class="zan-card__right-col">x{{item.quantity}}</view>
-
-      </view>
-      <view class="zan-card__detail-row zan-c-gray-darker">
-        <view class="zan-card__left-col zan-c-red">已发货</view>
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__right-col">x{{item.quantity}}</view>
+        </view>
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__left-col zan-c-red">已发货</view>
+        </view>
       </view>
     </view>
   </view>
-</view>
 </block>
+<view class="zan-panel">
+  <view class="zan-cell__bd">总金额:{{totalPrice}}</view>
+</view>
+<view class="btn-area">
+  <button class="zan-btn zan-btn--large zan-btn--primary" bindtap="goCheck">支付</button>
+</view>

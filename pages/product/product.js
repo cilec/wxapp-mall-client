@@ -70,7 +70,7 @@ Page(Object.assign({}, Zan.Quantity, {
     if (cart) {
       let productIndex = cart.findIndex(i => i.objectId == that.data.product.objectId)
       if (productIndex != -1) {
-        cart[productIndex].quantity = that.data.quantity.quantity;
+        cart[productIndex].quantity += that.data.quantity.quantity;
       }
       else {
         cart = [...cart, product];
