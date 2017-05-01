@@ -1,2 +1,16 @@
+
 <!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<view class="zan-panel user">
+  <image class="avatar" src="{{avatarUrl}}"></image>
+  <text style="padding:15rpx;">{{username}}</text>
+</view>
+<view class="zan-panel">
+  <navigator url="../address/address" class="zan-cell zan-cell--access">
+    <view class="zan-cell__bd">收货地址</view>
+    <view class="zan-cell__ft"></view>
+  </navigator>
+  <navigator url="../order/order" class="zan-cell zan-cell--access">
+    <view class="zan-cell__bd">我的订单</view>
+    <view class="zan-cell__ft"></view>
+  </navigator>
+</view>

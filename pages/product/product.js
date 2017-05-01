@@ -62,7 +62,7 @@ Page(Object.assign({}, Zan.Quantity, {
       imagesSize
     });
   },
-  goCheck() {
+  addToCart() {
     let that = this;
     let product = that.data.product;
     product.quantity = that.data.quantity.quantity;
@@ -80,7 +80,7 @@ Page(Object.assign({}, Zan.Quantity, {
       cart.push(product)
     }
     wx.setStorageSync('Cart', cart);
-    wx.navigateTo({
+    wx.switchTab({
       url: '../cart/cart',
     })
   },

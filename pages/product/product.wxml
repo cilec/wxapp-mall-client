@@ -39,5 +39,5 @@
   </block>
 </view>
 <view class="btn-area">
-  <button class="zan-btn zan-btn--large zan-btn--primary" bindtap="goCheck">去结账</button>
+  <button class="zan-btn zan-btn--large zan-btn--primary" bindtap="addToCart">添加到购物车</button>
 </view>

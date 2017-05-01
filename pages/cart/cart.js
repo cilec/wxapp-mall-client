@@ -1,4 +1,5 @@
 // pages/cart/cart.js
+const AV = require('../../libs/av-weapp-min.js');
 Page({
   data: {
     cart: [],
@@ -26,5 +27,38 @@ Page({
   },
   onUnload: function () {
     // 页面关闭
+  },
+  goCheck() {
+
+    AV.Cloud.run('order').then(res => {
+      wx.requestPayment({
+        timeStamp: res.timeStamp,
+        nonceStr: res.nonceStr,
+        package: res.package,
+        signType: 'MD5',
+        paySign: res.paySign,
+        success: function (res) {
+          // success
+        },
+        fail: function (res) {
+          // fail
+          switch (res.errMsg) {
+            case "requestPayment:fail cancel":
+              res.errMsg = "支付取消";
+              break;
+            default:
+              break;
+          }
+          wx.showModal({
+            showCancel: false,
+            title: '提示',
+            content: res.errMsg
+          })
+        },
+        complete: function (res) {
+          // complete
+        }
+      })
+    });
   }
 })

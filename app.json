@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/order/order",
+    "pages/address/address",
     "pages/category/category",
     "pages/product/product",
     "pages/cart/cart",
@@ -24,6 +26,10 @@
       {
         "pagePath": "pages/category/category",
         "text": "列表"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车"
       },
       {
         "pagePath": "pages/user/user",

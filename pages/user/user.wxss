@@ -1,1 +1,14 @@
 /* pages/user/user.wxss */
+.user{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40vh;
+    align-items: center;
+}
+.avatar{
+    height: 160rpx;
+    width: 160rpx;
+    border-radius: 50%;
+    box-shadow: 0px 3px 3px #ccc;
+}
