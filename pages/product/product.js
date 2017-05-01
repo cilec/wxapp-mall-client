@@ -29,7 +29,13 @@ Page(Object.assign({}, Zan.Quantity, {
       success: function (res) {
         // success
         // console.log(res);
-        thispage.setData({ product: res.data.find(item => item.objectId == options.objectId) })
+        thispage.setData({ product: res.data.find(item => item.objectId == options.objectId) });
+        wx.setNavigationBarTitle({
+          title: thispage.data.product.name.toString(),
+          success: function(res) {
+            // success
+          }
+        })
       },
       fail: function (res) {
         // fail

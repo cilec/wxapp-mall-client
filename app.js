@@ -1,5 +1,9 @@
 //app.js
-
+const Realtime = require('libs/realtime.weapp.min.js').Realtime;
+const realtime = new Realtime({
+  appId: 'G9Y1rpAi6FpMQKXYJ4MUkDF9-gzGzoHsz',
+  noBinary: true,
+});
 const AV = require('./libs/av-weapp-min.js');
 AV.init({
   appId: 'G9Y1rpAi6FpMQKXYJ4MUkDF9-gzGzoHsz',
@@ -14,6 +18,7 @@ App({
     }).catch(console.error);
   },
   globalData: {
-  
-  }
+
+  },
+  realtime: realtime
 })

@@ -29,7 +29,7 @@ Page({
     // 页面关闭
   },
   goCheck() {
-
+    let thisPage = this;
     AV.Cloud.run('order').then(res => {
       wx.requestPayment({
         timeStamp: res.timeStamp,
@@ -39,20 +39,20 @@ Page({
         paySign: res.paySign,
         success: function (res) {
           // success
+          wx.removeStorage({
+            key: 'Cart',
+            success: function (res) {
+              console.log(res.data);
+              thisPage.setData({ cart: [] })
+            }
+          })
         },
         fail: function (res) {
           // fail
-          switch (res.errMsg) {
-            case "requestPayment:fail cancel":
-              res.errMsg = "支付取消";
-              break;
-            default:
-              break;
-          }
           wx.showModal({
             showCancel: false,
             title: '提示',
-            content: res.errMsg
+            content: "支付失败"
           })
         },
         complete: function (res) {
