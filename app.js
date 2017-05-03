@@ -14,7 +14,7 @@ App({
     //调用API从本地缓存中获取数据
     AV.User.loginWithWeapp().then(user => {
       this.globalData.user = user.toJSON();
-      // console.log(user)
+      console.log(user)
     }).catch(console.error);
   },
   globalData: {

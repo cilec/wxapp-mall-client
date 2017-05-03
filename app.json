@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/chat/chat",
+    "pages/modelmessage/modelmessage",
     "pages/index/index",
+    "pages/chat/chat",
     "pages/order/order",
     "pages/address/address",
     "pages/category/category",

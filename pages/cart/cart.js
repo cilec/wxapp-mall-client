@@ -30,7 +30,7 @@ Page({
   },
   goCheck() {
     let thisPage = this;
-    AV.Cloud.run('order').then(res => {
+    AV.Cloud.run('order',{'totalPrice':thisPage.data.totalPrice}).then(res => {
       wx.requestPayment({
         timeStamp: res.timeStamp,
         nonceStr: res.nonceStr,
@@ -39,6 +39,7 @@ Page({
         paySign: res.paySign,
         success: function (res) {
           // success
+          thisPage.setData({totalPrice:0});
           wx.removeStorage({
             key: 'Cart',
             success: function (res) {

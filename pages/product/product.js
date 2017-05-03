@@ -32,7 +32,7 @@ Page(Object.assign({}, Zan.Quantity, {
         thispage.setData({ product: res.data.find(item => item.objectId == options.objectId) });
         wx.setNavigationBarTitle({
           title: thispage.data.product.name.toString(),
-          success: function(res) {
+          success: function (res) {
             // success
           }
         })
@@ -73,12 +73,12 @@ Page(Object.assign({}, Zan.Quantity, {
     let product = that.data.product;
     product.quantity = that.data.quantity.quantity;
     let cart = wx.getStorageSync('Cart');
-    if (cart) {
+    if (cart) {  //判断购物车中是否已有该商品
       let productIndex = cart.findIndex(i => i.objectId == that.data.product.objectId)
-      if (productIndex != -1) {
+      if (productIndex != -1) { //购物车中已存在该商品
         cart[productIndex].quantity += that.data.quantity.quantity;
       }
-      else {
+      else { //商品添加进购物车
         cart = [...cart, product];
       }
     } else {

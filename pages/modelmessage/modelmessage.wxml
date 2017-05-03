@@ -1,0 +1,9 @@
+
+<!--pages/modelmessage/modelmessage.wxml-->
+<text>pages/modelmessage/modelmessage.wxml</text>
+<form bindsubmit="submit" report-submit="{{true}}">
+  <input name="key1" />
+  <input name="key2" />
+  <input name="key3" />
+  <button form-type="submit">提交</button>
+</form>
